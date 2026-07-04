@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asami Global — Trans-Pacific Diplomacy & Commercialization Platform</title>
+  <meta name="description" content="Asami Global Co., Ltd. — Architect of the Trans-Pacific Diplomacy & Commercialization Platform. Founded by Jon Omori, former USOPC Japan Advisor and elite USA Gymnastics National Team member.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;0,6..96,900;1,6..96,400;1,6..96,500;1,6..96,600;1,6..96,700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       DESIGN SYSTEM — Custom Properties
+       Swiss Modernism · Institutional Finance · Bright Editorial
+       ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --color-bg: #F4F3EE;
+      --color-bg-alt: #EAE9E2;
+      --color-bg-elevated: #FFFFFF;
+      --color-bg-card: rgba(255, 255, 255, 0.85);
+      --color-surface: #FFFFFF;
+      --color-navy: #122130;
+      --color-navy-secondary: #1C3553;
+      --color-accent: #D3273E;
+      --color-accent-light: rgba(211, 39, 62, 0.08);
+      --color-charcoal: #1A1A1A;
+      --color-text: #122130;
+      --color-text-muted: #333D47;
+      --color-text-dim: #7C8694;
+      --color-border: rgba(18, 33, 48, 0.1);
+      --color-border-subtle: rgba(18, 33, 48, 0.06);
+      --color-card-bg: rgba(255, 255, 255, 0.7);
+      --color-card-border: rgba(18, 33, 48, 0.08);
+
+      --font-heading: 'Bodoni Moda', 'Georgia', serif;
+      --font-body: 'Jost', 'Helvetica Neue', sans-serif;
+
+      --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+      --section-padding: clamp(2rem, 5vw, 6rem);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-navy) var(--color-bg);
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* -webkit-font-smoothing: antialiased;/ */
+      -webkit-font-smoothing: auto;
+      /* -moz-osx-font-smoothing: grayscale; */
+      -moz-osx-font-smoothing: auto;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--color-bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(18, 33, 48, 0.2); border-radius: 3px; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SECTION BASE
+       ═══════════════════════════════════════════════════════════════ */
+    .slide {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--section-padding);
+      overflow: hidden;
+    }
+
+    .slide-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       TYPOGRAPHY
+       ═══════════════════════════════════════════════════════════════ */
+    /* h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--color-navy);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-optical-sizing: auto;
+    } */
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--color-navy);
+      text-rendering: optimizeLegibility;
+      /* THE FIX: Stop automatic thinning and force the optical size */
+      font-optical-sizing: none;
+      font-variation-settings: "opsz" 14, "wght" 600;
+      /* Ensure smoothing doesn't strip weight on light backgrounds */
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: clamp(0.7rem, 1vw, 0.8rem);
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 1px;
+      background: var(--color-accent);
+    }
+
+    .headline {
+      font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+      color: var(--color-navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .headline .gold { color: var(--color-accent); }
+
+    .subtext {
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      color: var(--color-text-muted);
+      /* font-weight: 400; */
+      font-weight: 500;
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FLOATING NAV
+       ═══════════════════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.5rem 1.25rem;
+      background: rgba(244, 243, 238, 0.8);
+      backdrop-filter: blur(20px) saturate(1.5);
+      -webkit-backdrop-filter: blur(20px) saturate(1.5);
+      border: 1px solid var(--color-card-border);
+      border-radius: 100px;
+      transition: all 0.4s var(--ease-smooth);
+    }
+
+    .nav.scrolled {
+      background: rgba(244, 243, 238, 0.95);
+      box-shadow: 0 4px 24px rgba(18, 33, 48, 0.08);
+    }
+
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1.5px solid var(--color-text-dim);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-smooth);
+      position: relative;
+    }
+
+    .nav-dot:hover {
+      border-color: var(--color-accent);
+      transform: scale(1.3);
+    }
+
+    .nav-dot.active {
+      border-color: var(--color-accent);
+      background: var(--color-accent);
+      box-shadow: 0 0 8px rgba(211, 39, 62, 0.25);
+    }
+
+    .nav-dot::after {
+      content: attr(data-label);
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-navy);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-dot:hover::after {
+      opacity: 1;
+    }
+
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-navy);
+      margin-right: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SLIDE 1: HERO
+       ═══════════════════════════════════════════════════════════════ */
+    #hero {
+      background: var(--color-bg);
+    }
+
+    .hero-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-overline {
+      font-family: var(--font-body);
+      font-size: clamp(0.7rem, 1vw, 0.85rem);
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 2rem;
+      opacity: 0;
+    }
+
+    .hero-name {
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-weight: 600;
+      line-height: 0.95;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      color: var(--color-navy);
+    }
+
+    .hero-title {
+      font-family: var(--font-body);
+      font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: var(--color-text-muted);
+      margin-bottom: 3rem;
+      opacity: 0;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hero-tagline {
+      font-family: var(--font-heading);
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      line-height: 1.5;
+      opacity: 0;
+    }
+
+    .hero-tagline em {
+      color: var(--color-accent);
+      font-style: italic;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      opacity: 0;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--color-navy), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* Vertical rule accents */
+    .gold-line-left, .gold-line-right {
+      position: absolute;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(18, 33, 48, 0.08), transparent);
+      opacity: 1;
+    }
+    .gold-line-left { left: 8%; top: 10%; height: 80%; }
+    .gold-line-right { right: 8%; top: 10%; height: 80%; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SLIDE 2: PROBLEM & OPPORTUNITY
+       ═══════════════════════════════════════════════════════════════ */
+    #problem {
+      background: var(--color-bg-alt);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .problem-statement {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.8rem);
+      line-height: 1.3;
+      color: var(--color-navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .problem-statement .highlight {
+      color: var(--color-accent);
+      position: relative;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--color-bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-card-border);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.4s var(--ease-smooth);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .stat-card:hover {
+      border-color: rgba(18, 33, 48, 0.15);
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(18, 33, 48, 0.06);
+    }
+
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 600;
+      color: var(--color-navy);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      /* THE FIX: Stop the browser from thinning out these large numbers */
+      font-optical-sizing: none;
+      font-variation-settings: "opsz" 14, "wght" 600;
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SLIDE 3: FOUNDER'S JOURNEY (TIMELINE)
+       ═══════════════════════════════════════════════════════════════ */
+    #journey {
+      background: var(--color-bg);
+    }
+
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(18, 33, 48, 0.12), rgba(18, 33, 48, 0.2), rgba(18, 33, 48, 0.12), transparent);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .timeline-item:nth-child(odd) {
+      flex-direction: row;
+      padding-right: calc(50% + 2.5rem);
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+      padding-left: calc(50% + 2.5rem);
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--color-bg);
+      border: 2px solid var(--color-navy);
+      z-index: 2;
+      transition: all 0.3s;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      box-shadow: 0 0 12px rgba(211, 39, 62, 0.25);
+    }
+
+    .timeline-content {
+      background: var(--color-bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-card-border);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      transition: all 0.4s var(--ease-smooth);
+      cursor: default;
+    }
+
+    .timeline-content:hover {
+      border-color: rgba(18, 33, 48, 0.15);
+      box-shadow: 0 8px 32px rgba(18, 33, 48, 0.06);
+    }
+
+    .timeline-year {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      /* font-weight: 400; */
+      font-weight: 600;
+
+      color: var(--color-navy);
+      margin-bottom: 0.35rem;
+      /* THE FIX: Stop the browser from thinning out these large numbers */
+      font-optical-sizing: none;
+      font-variation-settings: "opsz" 14, "wght" 600;
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      /* font-weight: 400; */
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SLIDE 4: FOUR PILLARS
+       ═══════════════════════════════════════════════════════════════ */
+    #pillars {
+      background: var(--color-bg-alt);
+    }
+
+    .pillars-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .pillar-card {
+      background: var(--color-bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--color-card-border);
+      border-radius: 20px;
+      padding: 2.5rem 1.75rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.5s var(--ease-out-expo);
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--color-accent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .pillar-card:hover::before { opacity: 1; }
+
+    .pillar-card:hover {
+      border-color: rgba(18, 33, 48, 0.12);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(18, 33, 48, 0.07);
+    }
+
+    .pillar-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: var(--color-accent-light);
+      border: 1px solid rgba(211, 39, 62, 0.1);
+      transition: all 0.4s;
+    }
+
+    .pillar-card:hover .pillar-icon {
+      background: rgba(211, 39, 62, 0.12);
+      border-color: rgba(211, 39, 62, 0.2);
+      transform: scale(1.08);
+    }
+
+    .pillar-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .pillar-name {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .pillar-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      /* font-weight: 400; */
+      font-weight: 500;
+
+    }
+
+    .pillar-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      opacity: 0;
+    }
+
+    .flow-step {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-navy);
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(18, 33, 48, 0.15);
+      border-radius: 100px;
+    }
+
+    .flow-arrow {
+      color: var(--color-accent);
+      font-size: 0.9rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SLIDE 5: PLATFORM IN ACTION
+       ═══════════════════════════════════════════════════════════════ */
+    #platform {
+      background: var(--color-bg);
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .platform-left { padding-top: 1rem; }
+
+    .corridor-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: var(--color-bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-card-border);
+      border-radius: 20px;
+      opacity: 0;
+    }
+
+    .corridor-node {
+      text-align: center;
+      flex: 1;
+    }
+
+    .corridor-flag {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .corridor-name {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-navy);
+    }
+
+    .corridor-sub {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      margin-top: 0.15rem;
+    }
+
+    .corridor-line {
+      flex: 0.5;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(18,33,48,0.1), var(--color-navy), rgba(18,33,48,0.1));
+      position: relative;
+    }
+
+    .corridor-line::after {
+      content: '';
+      position: absolute;
+      right: -3px;
+      top: -3px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    .corridor-line::before {
+      content: '';
+      position: absolute;
+      left: -3px;
+      top: -3px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    .partner-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .partner-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--color-bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-card-border);
+      border-radius: 14px;
+      transition: all 0.4s var(--ease-smooth);
+      cursor: default;
+      opacity: 0;
+      transform: translateX(30px);
+    }
+
+    .partner-item:hover {
+      border-color: rgba(18, 33, 48, 0.15);
+      transform: translateX(4px);
+      box-shadow: 0 8px 24px rgba(18, 33, 48, 0.06);
+    }
+
+    .partner-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--color-accent-light);
+      border: 1px solid rgba(211, 39, 62, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* .partner-info h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      margin-bottom: 0.15rem;
+    } */
+
+    .partner-info h4 {
+      font-family: var(--font-body); /* Switch from Bodoni to Jost */
+      font-size: 1.05rem; /* Slightly bumped up for legibility */
+      font-weight: 600; /* Solid Semi-Bold */
+      color: var(--color-navy);
+      margin-bottom: 0.15rem;
+    }
+
+    .partner-info p {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SLIDE 6: CREDIBILITY & MEDIA
+       ═══════════════════════════════════════════════════════════════ */
+    #credibility {
+      background: var(--color-bg-alt);
+    }
+
+    .cred-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .cred-card {
+      background: var(--color-bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--color-card-border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.4s var(--ease-smooth);
+      cursor: default;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .cred-card:hover {
+      border-color: rgba(18, 33, 48, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(18, 33, 48, 0.06);
+    }
+
+    .cred-card.featured {
+      grid-column: span 1;
+      border-color: rgba(211, 39, 62, 0.15);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .cred-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--color-accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .cred-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* .cred-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-navy);
+      margin-bottom: 0.5rem;
+    } */
+
+    .cred-card h3 {
+      font-family: var(--font-body); /* Switch from Bodoni to Jost */
+      font-size: 1.1rem; /* Keep the planned size */
+      font-weight: 700; /* Force it to a solid Bold */
+      /* text-transform: uppercase; Optional: Makes it look like a crisp corporate label */
+      letter-spacing: 0.05em; /* Add a bit of breathing room for uppercase text */
+      color: var(--color-navy); /* Keep the deep navy tone */
+      margin-bottom: 0.5rem;
+    }
+
+    .cred-card p {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .network-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .network-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.4rem;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid var(--color-card-border);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--color-text-muted);
+      transition: all 0.3s;
+      cursor: default;
+      opacity: 0;
+    }
+
+    .network-badge:hover {
+      border-color: rgba(18, 33, 48, 0.2);
+      color: var(--color-navy);
+    }
+
+    .network-badge svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SLIDE 7: CTA
+       ═══════════════════════════════════════════════════════════════ */
+    #cta {
+      background: var(--color-bg);
+      text-align: center;
+    }
+
+    .cta-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-headline {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--color-navy);
+      opacity: 0;
+    }
+
+    .cta-subtitle {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      color: var(--color-text-muted);
+      font-weight: 400;
+      max-width: 550px;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+      opacity: 0;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.1rem 2.5rem;
+      background: var(--color-charcoal);
+      color: #F4F3EE;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s var(--ease-smooth);
+      opacity: 0;
+      text-decoration: none;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      transition: left 0.6s;
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(26, 26, 26, 0.2);
+    }
+
+    .cta-button svg {
+      width: 18px;
+      height: 18px;
+      stroke: #F4F3EE;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .cta-contact {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      opacity: 0;
+    }
+
+    .cta-contact span {
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+      font-weight: 400;
+    }
+
+    .cta-contact a {
+      color: var(--color-navy);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .cta-contact a:hover { color: var(--color-accent); }
+
+    .cta-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(18, 33, 48, 0.2), transparent);
+      margin: 2.5rem auto;
+      opacity: 0;
+    }
+
+    .cta-footer {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+      opacity: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       BACKGROUND FLOATING SHAPES
+       ═══════════════════════════════════════════════════════════════ */
+    .bg-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.04;
+      animation: floatShape 30s ease-in-out infinite;
+    }
+
+    .bg-shape:nth-child(1) {
+      width: 600px; height: 600px;
+      background: rgba(211, 39, 62, 0.3);
+      top: -10%; left: -5%;
+      animation-delay: 0s;
+    }
+
+    .bg-shape:nth-child(2) {
+      width: 400px; height: 400px;
+      background: rgba(28, 53, 83, 0.2);
+      top: 60%; right: -5%;
+      animation-delay: -10s;
+    }
+
+    .bg-shape:nth-child(3) {
+      width: 500px; height: 500px;
+      background: rgba(18, 33, 48, 0.15);
+      bottom: -10%; left: 40%;
+      animation-delay: -20s;
+    }
+
+    @keyframes floatShape {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -40px) scale(1.05); }
+      66% { transform: translate(-20px, 30px) scale(0.95); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       GRAIN TEXTURE OVERLAY
+       ═══════════════════════════════════════════════════════════════ */
+    .grain {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 99;
+      opacity: 0.018;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px 128px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .problem-grid, .platform-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pillar-grid { grid-template-columns: repeat(2, 1fr); }
+      .cred-grid { grid-template-columns: repeat(2, 1fr); }
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        flex-direction: row;
+        padding-right: 0;
+        padding-left: 3rem;
+        text-align: left;
+      }
+      .timeline::before { left: 0; }
+      .timeline-dot { left: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .slide { padding: 2rem 1.25rem; }
+      .pillar-grid { grid-template-columns: 1fr; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .stat-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .nav-brand { display: none; }
+      .pillar-flow { flex-wrap: wrap; }
+      .corridor-visual { flex-direction: column; gap: 1rem; }
+      .corridor-line {
+        width: 1px;
+        height: 30px;
+        background: linear-gradient(to bottom, rgba(18,33,48,0.1), var(--color-navy), rgba(18,33,48,0.1));
+      }
+      .corridor-line::after { right: -3px; top: auto; bottom: -3px; }
+      .corridor-line::before { left: -3px; top: -3px; }
+      .network-row { gap: 0.75rem; }
+      .cred-card.featured { grid-column: span 1; }
+    }
+
+    @media (max-width: 480px) {
+      .stat-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: clamp(2.8rem, 12vw, 4rem); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       REDUCED MOTION
+       ═══════════════════════════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-snap-type: none; scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .bg-shape { animation: none; }
+      .scroll-line { animation: none; opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ BACKGROUND SHAPES ══════════ -->
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="bg-shape"></div>
+    <div class="bg-shape"></div>
+    <div class="bg-shape"></div>
+  </div>
+
+  <!-- ══════════ GRAIN OVERLAY ══════════ -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ══════════ NAVIGATION ══════════ -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Section navigation">
+    <span class="nav-brand">AG</span>
+    <button class="nav-dot active" data-target="hero" data-label="Home" aria-label="Go to Home section"></button>
+    <button class="nav-dot" data-target="problem" data-label="Opportunity" aria-label="Go to Opportunity section"></button>
+    <button class="nav-dot" data-target="journey" data-label="Journey" aria-label="Go to Journey section"></button>
+    <button class="nav-dot" data-target="pillars" data-label="Framework" aria-label="Go to Framework section"></button>
+    <button class="nav-dot" data-target="platform" data-label="Platform" aria-label="Go to Platform section"></button>
+    <button class="nav-dot" data-target="credibility" data-label="Credibility" aria-label="Go to Credibility section"></button>
+    <button class="nav-dot" data-target="cta" data-label="Connect" aria-label="Go to Connect section"></button>
+  </nav>
+
+  <!-- ══════════ SLIDE 1: HERO ══════════ -->
+  <section class="slide" id="hero" aria-label="Introduction">
+    <div class="gold-line-left" aria-hidden="true"></div>
+    <div class="gold-line-right" aria-hidden="true"></div>
+    <div class="slide-inner">
+      <div class="hero-content">
+        <span class="hero-overline">Asami Global Co., Ltd. — アサミグローバル株式会社</span>
+        <h1 class="hero-name">Jon Omori</h1>
+        <p class="hero-title">Founder & Representative Director &nbsp;·&nbsp; 代表取締役社長</p>
+        <div class="hero-divider"></div>
+        <p class="hero-tagline">
+          Architect of the <em>Trans-Pacific Diplomacy &amp; Commercialization Platform</em>
+        </p>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ SLIDE 2: PROBLEM & OPPORTUNITY ══════════ -->
+  <section class="slide" id="problem" aria-label="The Opportunity">
+    <div class="slide-inner">
+      <div class="problem-grid">
+        <div>
+          <div class="section-label">The Opportunity</div>
+          <h2 class="problem-statement">
+            Billions in bilateral exchange activity.
+            <span class="highlight">Zero integrated platform</span>
+            to commercialize it.
+          </h2>
+          <p class="subtext">
+            Japan and the United States share the world's deepest Olympic, cultural, and commercial exchange corridor — yet no systematic architecture exists to convert these activities into scalable, government-aligned, revenue-generating systems.
+          </p>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-count="14">0</div>
+            <div class="stat-label">TEAM USA Host Towns<br>Secured & Managed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count="15">0</div>
+            <div class="stat-label">Japanese Prefectures<br>Spanning Hokkaido to Miyazaki</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count="28">0</div>
+            <div class="stat-label">Years in Global<br>Investment Banking</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count="8">0</div>
+            <div class="stat-label">Years on USA<br>Gymnastics National Team</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SLIDE 3: FOUNDER'S JOURNEY ══════════ -->
+  <section class="slide" id="journey" aria-label="Jon Omori's Journey">
+    <div class="slide-inner">
+      <div class="pillars-header">
+        <div class="section-label" style="justify-content:center;">The Founder's Journey</div>
+        <h2 class="headline" style="text-align:center;">From the <span class="gold">Arena</span> to the <span class="gold">World Stage</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1981 – 1988</div>
+            <div class="timeline-title">Elite Gymnast, USA National Team</div>
+            <div class="timeline-desc">8-year career. 1983 National Junior Champion. Qualified for 1984 & 1988 U.S. Olympic Trials. 1987 World Championships Team. Trained under Coach Yoichi Tomita.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1990</div>
+            <div class="timeline-title">UC Berkeley, BA Economics</div>
+            <div class="timeline-desc">Returned to complete his degree and served as Assistant Gymnastics Coach (1988–1990).</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">1990 – 2018</div>
+            <div class="timeline-title">Global Investment Banking</div>
+            <div class="timeline-desc">28 years across New York and Tokyo. Interest Rates & Credit Trader → Equities Sales Trader. Senior roles at Barclays and Citigroup Securities Japan (Head of Equity Execution Services, reported by Bloomberg).</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">January 2018</div>
+            <div class="timeline-title">Founded Asami Global Co., Ltd.</div>
+            <div class="timeline-desc">Resigned Citigroup to establish the Trans-Pacific Diplomacy & Commercialization Platform. Named after his daughter, Asami.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2018 – 2021</div>
+            <div class="timeline-title">USOPC Japan Representative</div>
+            <div class="timeline-desc">Tokyo Special Advisor & Host Town Special Advisor for TEAM USA. Personally secured 14 of 24 registered Host Towns across 15 prefectures. Organized USA Surfing's pre-Olympic training camp in Makinohara.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2022 – Present</div>
+            <div class="timeline-title">Olympic Legacy & LA 2028 Operations</div>
+            <div class="timeline-desc">Established Makinohara coastal office. Operating the Hawaii–Japan Surf Exchange System. Dual base: Tokyo + Los Angeles. Building the bridge to LA 2028.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SLIDE 4: FOUR PILLARS ══════════ -->
+  <section class="slide" id="pillars" aria-label="Four Pillar Diplomacy Framework">
+    <div class="slide-inner">
+      <div class="pillars-header">
+        <div class="section-label" style="justify-content:center;">Strategic Framework</div>
+        <h2 class="headline" style="text-align:center;">Four-Pillar <span class="gold">Diplomacy</span> Framework</h2>
+        <p class="subtext" style="margin:0 auto; text-align:center;">No pillar operates in isolation. Each feeds into the next, creating an integrated system of exchange, engagement, and economic activation.</p>
+      </div>
+      <div class="pillar-grid">
+        <!-- Sports -->
+        <div class="pillar-card" id="pillar-sports">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10"/><path d="M12 2a15 15 0 0 0-4 10 15 15 0 0 0 4 10"/><path d="M2 12h20"/></svg>
+          </div>
+          <h3 class="pillar-name">Sports Diplomacy</h3>
+          <p class="pillar-desc">The primary visibility engine. Elite athlete-led exchanges drive public engagement, government funding, and entry into all other pillars.</p>
+        </div>
+        <!-- Cultural -->
+        <div class="pillar-card" id="pillar-cultural">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="pillar-name">Cultural Diplomacy</h3>
+          <p class="pillar-desc">Heritage exchange and soft power execution. Tea ceremony as cultural bridge asset. Regional identity programming across the Pacific.</p>
+        </div>
+        <!-- Education -->
+        <div class="pillar-card" id="pillar-education">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="pillar-name">Education Diplomacy</h3>
+          <p class="pillar-desc">Youth and institutional partnerships. School integration programs building next-generation leadership pipelines between Japan and the USA.</p>
+        </div>
+        <!-- Commerce -->
+        <div class="pillar-card" id="pillar-commerce">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="pillar-name">Cultural Commerce</h3>
+          <p class="pillar-desc">Export-driven economic activation. Makinohara green tea as flagship product. Tourism and revenue systems aligned with government partners.</p>
+        </div>
+      </div>
+      <div class="pillar-flow" aria-label="Integration flow">
+        <span class="flow-step">Sport</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Culture</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Education</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Commerce</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SLIDE 5: PLATFORM IN ACTION ══════════ -->
+  <section class="slide" id="platform" aria-label="Platform in Action">
+    <div class="slide-inner">
+      <div class="platform-grid">
+        <div class="platform-left">
+          <div class="section-label">Flagship Initiative</div>
+          <h2 class="headline">Hawaii–Japan <span class="gold">Surf Exchange</span> System</h2>
+          <p class="subtext">
+            Formally integrating the proven Shizuoka–Makinohara–Hawaii exchange model into the Asami Global execution platform. Athlete-led diplomacy connecting elite sport, youth development, and cultural commerce across the Pacific.
+          </p>
+          <div class="corridor-visual">
+            <div class="corridor-node">
+              <span class="corridor-flag" aria-hidden="true">🇯🇵</span>
+              <div class="corridor-name">Japan</div>
+              <div class="corridor-sub">Makinohara · Shizuoka</div>
+            </div>
+            <div class="corridor-line"></div>
+            <div class="corridor-node">
+              <span class="corridor-flag" aria-hidden="true">🌺</span>
+              <div class="corridor-name">Hawai'i</div>
+              <div class="corridor-sub">Honolulu · North Shore</div>
+            </div>
+            <div class="corridor-line"></div>
+            <div class="corridor-node">
+              <span class="corridor-flag" aria-hidden="true">🇺🇸</span>
+              <div class="corridor-name">California</div>
+              <div class="corridor-sub">San Clemente · LA 2028</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="section-label">Key Partners & Athletes</div>
+          <ul class="partner-list">
+            <li class="partner-item">
+              <div class="partner-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D3273E" stroke-width="1.5" stroke-linecap="round"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
+              </div>
+              <div class="partner-info">
+                <h4>Carissa Moore</h4>
+                <p>4× WSL World Champion · First Olympic surfing gold medalist · Moore Aloha Foundation</p>
+              </div>
+            </li>
+            <li class="partner-item">
+              <div class="partner-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D3273E" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10"/><path d="M12 2a15 15 0 0 0-4 10 15 15 0 0 0 4 10"/></svg>
+              </div>
+              <div class="partner-info">
+                <h4>Kolohe Andino</h4>
+                <p>Tokyo 2020 U.S. Olympic Team Surfer · San Clemente anchor athlete</p>
+              </div>
+            </li>
+            <li class="partner-item">
+              <div class="partner-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D3273E" stroke-width="1.5" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="partner-info">
+                <h4>Kei Kobayashi</h4>
+                <p>Japan National Surf Team member · Bridge for youth development</p>
+              </div>
+            </li>
+            <li class="partner-item">
+              <div class="partner-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D3273E" stroke-width="1.5" stroke-linecap="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+              </div>
+              <div class="partner-info">
+                <h4>City of Makinohara</h4>
+                <p>Mayor Kikuo Sugimoto · Shizunami Surf Stadium (PerfectSwell) · TEAM USA Host Town</p>
+              </div>
+            </li>
+            <li class="partner-item">
+              <div class="partner-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D3273E" stroke-width="1.5" stroke-linecap="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+              </div>
+              <div class="partner-info">
+                <h4>USA Surfing & USOPC</h4>
+                <p>Greg Cruse (CEO) · Contracted partner for pre-Olympic training operations</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SLIDE 6: CREDIBILITY ══════════ -->
+  <section class="slide" id="credibility" aria-label="Credibility and Recognition">
+    <div class="slide-inner">
+      <div class="cred-header">
+        <div class="section-label" style="justify-content:center;">Verified Credentials</div>
+        <h2 class="headline" style="text-align:center;">Recognized at the <span class="gold">Highest Levels</span></h2>
+      </div>
+      <div class="cred-grid">
+        <div class="cred-card featured">
+          <div class="cred-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
+          </div>
+          <h3>USOPC Certificate of Appreciation</h3>
+          <p>Official Team USA recognition for contribution to Team USA's performance at the Olympic Games Tokyo 2020. Signed by Rick Adams (Chief, Sport Performance) and Finbarr Kirwan (Chief, Olympic Sport).</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>USOPC Official Thank You Letter</h3>
+          <p>"Your efforts undoubtedly contributed to the great success Team USA had in Tokyo. The contributions you provided, working in large part behind the scenes, ensure that Team USA is the best prepared team."</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Bloomberg Japan Feature</h3>
+          <p>Named hire at Citigroup Securities Japan as Head of Equity Execution Services — covering Japan, U.S., European, and Asian equity trading (June 2016).</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg>
+          </div>
+          <h3>Japanese National Media Coverage</h3>
+          <p>Featured profiles in Asahi Shimbun, Shizuoka Shimbun (front page), and Yomiuri Shimbun documenting Jon's Olympic Legacy work and Makinohara commitment.</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>14 of 24 Host Towns Nationwide</h3>
+          <p>Personally secured and managed more than half of the entire TEAM USA Host Town network across Japan — spanning 15 prefectures from Hokkaido to Miyazaki.</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Government & Diplomatic Partners</h3>
+          <p>Direct working relationships with Hawaii Governor Josh Green, Honolulu Mayor Rick Blangiardi, Makinohara Mayor Sugimoto, and USOPC senior leadership.</p>
+        </div>
+      </div>
+      <div class="network-row">
+        <div class="network-badge">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10"/><path d="M12 2a15 15 0 0 0-4 10 15 15 0 0 0 4 10"/></svg>
+          U.S.-Japan Council
+        </div>
+        <div class="network-badge">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          TELL Japan
+        </div>
+        <div class="network-badge">
+          <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+          Tokyo American Club
+        </div>
+        <div class="network-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
+          USOPC Alumni
+        </div>
+        <div class="network-badge">
+          <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          Moore Aloha Foundation
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SLIDE 7: CTA ══════════ -->
+  <section class="slide" id="cta" aria-label="Connect with Asami Global">
+    <div class="slide-inner">
+      <div class="cta-content">
+        <div class="section-label" style="justify-content:center;">Next Steps</div>
+        <h2 class="cta-headline headline">Let's Build <br>the <span class="gold">Bridge</span></h2>
+        <p class="cta-subtitle">
+          The infrastructure exists. The relationships are proven. The corridor is open. The only question is — are you ready to be part of it?
+        </p>
+        <a href="mailto:jon@asamiglobal.com" class="cta-button" id="ctaButton">
+          Begin the Conversation
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <div class="cta-divider"></div>
+        <div class="cta-contact">
+          <span>Jon Omori &nbsp;·&nbsp; 代表取締役社長</span>
+          <span>Asami Global Co., Ltd. &nbsp;·&nbsp; Tokyo, Japan</span>
+        </div>
+        <div style="height: 2rem;"></div>
+        <div class="cta-footer">
+          アサミグローバル株式会社 &nbsp;·&nbsp; Est. 2018
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SCRIPTS ══════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    // ═══════════════════════════════════════════════════════════════
+    // REDUCED MOTION CHECK
+    // ═══════════════════════════════════════════════════════════════
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Global defaults
+    gsap.defaults({
+      ease: 'power3.out',
+      duration: 1
+    });
+
+    // ═══════════════════════════════════════════════════════════════
+    // NAVIGATION
+    // ═══════════════════════════════════════════════════════════════
+    const navDots = document.querySelectorAll('.nav-dot');
+    const sections = document.querySelectorAll('.slide');
+    const nav = document.getElementById('mainNav');
+
+    navDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const target = document.getElementById(dot.dataset.target);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Update active dot on scroll
+    const observerOptions = { threshold: 0.5 };
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navDots.forEach(d => d.classList.remove('active'));
+          const dot = document.querySelector(`.nav-dot[data-target="${entry.target.id}"]`);
+          if (dot) dot.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(s => sectionObserver.observe(s));
+
+    // Nav background on scroll
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 100);
+    }, { passive: true });
+
+    // ═══════════════════════════════════════════════════════════════
+    // SKIP ANIMATIONS IF REDUCED MOTION
+    // ═══════════════════════════════════════════════════════════════
+    if (prefersReducedMotion) {
+      // Make everything visible immediately
+      document.querySelectorAll('.hero-overline, .hero-name, .hero-title, .hero-divider, .hero-tagline, .scroll-indicator, .stat-card, .timeline-item, .pillar-card, .pillar-flow, .corridor-visual, .partner-item, .cred-card, .network-badge, .cta-headline, .cta-subtitle, .cta-button, .cta-divider, .cta-contact, .cta-footer').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    } else {
+
+    // ═══════════════════════════════════════════════════════════════
+    // SLIDE 1: HERO ENTRANCE
+    // ═══════════════════════════════════════════════════════════════
+    const heroTL = gsap.timeline({ delay: 0.3 });
+
+    heroTL
+      .to('.hero-overline', { opacity: 1, y: 0, duration: 0.8 })
+      .to('.hero-name', { opacity: 1, y: 0, duration: 1.2, ease: 'power4.out' }, '-=0.4')
+      .to('.hero-title', { opacity: 1, y: 0, duration: 0.8 }, '-=0.6')
+      .to('.hero-divider', { opacity: 1, scaleX: 1, duration: 0.8 }, '-=0.4')
+      .to('.hero-tagline', { opacity: 1, y: 0, duration: 0.9 }, '-=0.4')
+      .to('.scroll-indicator', { opacity: 1, duration: 0.6 }, '-=0.2');
+
+    // ═══════════════════════════════════════════════════════════════
+    // SLIDE 2: PROBLEM — Text & Stats
+    // ═══════════════════════════════════════════════════════════════
+    gsap.from('#problem .section-label', {
+      scrollTrigger: { trigger: '#problem', start: 'top 70%', toggleActions: 'play none none reverse' },
+      opacity: 0, x: -30, duration: 0.7
+    });
+
+    gsap.from('#problem .problem-statement', {
+      scrollTrigger: { trigger: '#problem', start: 'top 65%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 40, duration: 1
+    });
+
+    gsap.from('#problem .subtext', {
+      scrollTrigger: { trigger: '#problem', start: 'top 60%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 30, duration: 0.8, delay: 0.2
+    });
+
+    // Stat cards stagger
+    gsap.to('.stat-card', {
+      scrollTrigger: { trigger: '.stat-grid', start: 'top 75%', toggleActions: 'play none none reverse' },
+      opacity: 1,
+      y: 0,
+      stagger: 0.15,
+      duration: 0.8
+    });
+
+    // Counter animation
+    ScrollTrigger.create({
+      trigger: '.stat-grid',
+      start: 'top 75%',
+      onEnter: () => {
+        document.querySelectorAll('.stat-number').forEach(el => {
+          const target = parseInt(el.dataset.count);
+          gsap.to(el, {
+            innerText: target,
+            duration: 2,
+            snap: { innerText: 1 },
+            ease: 'power2.out'
+          });
+        });
+      },
+      once: true
+    });
+
+    // ═══════════════════════════════════════════════════════════════
+    // SLIDE 3: TIMELINE
+    // ═══════════════════════════════════════════════════════════════
+    gsap.from('#journey .section-label', {
+      scrollTrigger: { trigger: '#journey', start: 'top 70%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 20, duration: 0.7
+    });
+
+    gsap.from('#journey .headline', {
+      scrollTrigger: { trigger: '#journey', start: 'top 65%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 30, duration: 0.9
+    });
+
+    gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+      gsap.to(item, {
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.08
+      });
+    });
+
+    // ═══════════════════════════════════════════════════════════════
+    // SLIDE 4: FOUR PILLARS
+    // ═══════════════════════════════════════════════════════════════
+    gsap.from('#pillars .section-label', {
+      scrollTrigger: { trigger: '#pillars', start: 'top 70%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 20, duration: 0.7
+    });
+
+    gsap.from('#pillars .headline', {
+      scrollTrigger: { trigger: '#pillars', start: 'top 65%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 30, duration: 0.9
+    });
+
+    gsap.from('#pillars .subtext', {
+      scrollTrigger: { trigger: '#pillars', start: 'top 60%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 20, duration: 0.7, delay: 0.1
+    });
+
+    gsap.to('.pillar-card', {
+      scrollTrigger: { trigger: '.pillar-grid', start: 'top 75%', toggleActions: 'play none none reverse' },
+      opacity: 1,
+      y: 0,
+      stagger: 0.12,
+      duration: 0.9,
+      ease: 'power3.out'
+    });
+
+    gsap.to('.pillar-flow', {
+      scrollTrigger: { trigger: '.pillar-flow', start: 'top 90%', toggleActions: 'play none none reverse' },
+      opacity: 1,
+      duration: 0.8,
+      delay: 0.5
+    });
+
+    // ═══════════════════════════════════════════════════════════════
+    // SLIDE 5: PLATFORM
+    // ═══════════════════════════════════════════════════════════════
+    gsap.from('#platform .section-label', {
+      scrollTrigger: { trigger: '#platform', start: 'top 70%', toggleActions: 'play none none reverse' },
+      opacity: 0, x: -30, duration: 0.7
+    });
+
+    gsap.from('#platform .headline', {
+      scrollTrigger: { trigger: '#platform', start: 'top 65%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 30, duration: 0.9
+    });
+
+    gsap.from('#platform .subtext', {
+      scrollTrigger: { trigger: '#platform', start: 'top 60%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 20, duration: 0.7, delay: 0.15
+    });
+
+    gsap.to('.corridor-visual', {
+      scrollTrigger: { trigger: '.corridor-visual', start: 'top 85%', toggleActions: 'play none none reverse' },
+      opacity: 1,
+      duration: 1
+    });
+
+    gsap.to('.partner-item', {
+      scrollTrigger: { trigger: '.partner-list', start: 'top 80%', toggleActions: 'play none none reverse' },
+      opacity: 1,
+      x: 0,
+      stagger: 0.12,
+      duration: 0.7
+    });
+
+    // ═══════════════════════════════════════════════════════════════
+    // SLIDE 6: CREDIBILITY
+    // ═══════════════════════════════════════════════════════════════
+    gsap.from('#credibility .section-label', {
+      scrollTrigger: { trigger: '#credibility', start: 'top 70%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 20, duration: 0.7
+    });
+
+    gsap.from('#credibility .headline', {
+      scrollTrigger: { trigger: '#credibility', start: 'top 65%', toggleActions: 'play none none reverse' },
+      opacity: 0, y: 30, duration: 0.9
+    });
+
+    gsap.to('.cred-card', {
+      scrollTrigger: { trigger: '.cred-grid', start: 'top 75%', toggleActions: 'play none none reverse' },
+      opacity: 1,
+      y: 0,
+      stagger: 0.1,
+      duration: 0.8
+    });
+
+    gsap.to('.network-badge', {
+      scrollTrigger: { trigger: '.network-row', start: 'top 90%', toggleActions: 'play none none reverse' },
+      opacity: 1,
+      stagger: 0.08,
+      duration: 0.6
+    });
+
+    // ═══════════════════════════════════════════════════════════════
+    // SLIDE 7: CTA
+    // ═══════════════════════════════════════════════════════════════
+    const ctaTL = gsap.timeline({
+      scrollTrigger: { trigger: '#cta', start: 'top 60%', toggleActions: 'play none none reverse' }
+    });
+
+    ctaTL
+      .from('#cta .section-label', { opacity: 0, y: 20, duration: 0.6 })
+      .to('.cta-headline', { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }, '-=0.3')
+      .to('.cta-subtitle', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
+      .to('.cta-button', { opacity: 1, y: 0, duration: 0.7 }, '-=0.3')
+      .to('.cta-divider', { opacity: 1, duration: 0.5 }, '-=0.2')
+      .to('.cta-contact', { opacity: 1, duration: 0.6 }, '-=0.2')
+      .to('.cta-footer', { opacity: 1, duration: 0.5 }, '-=0.2');
+
+    // ═══════════════════════════════════════════════════════════════
+    // MAGNETIC HOVER on CTA BUTTON
+    // ═══════════════════════════════════════════════════════════════
+    const ctaBtn = document.getElementById('ctaButton');
+    if (ctaBtn) {
+      ctaBtn.addEventListener('mousemove', (e) => {
+        const rect = ctaBtn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(ctaBtn, { x: x * 0.2, y: y * 0.2, duration: 0.3 });
+      });
+      ctaBtn.addEventListener('mouseleave', () => {
+        gsap.to(ctaBtn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
+      });
+    }
+
+    } // end of reduced-motion else block
+
+    // ═══════════════════════════════════════════════════════════════
+    // KEYBOARD NAVIGATION (always active)
+    // ═══════════════════════════════════════════════════════════════
+    document.addEventListener('keydown', (e) => {
+      const currentDot = document.querySelector('.nav-dot.active');
+      const dots = Array.from(navDots);
+      const idx = dots.indexOf(currentDot);
+
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        e.preventDefault();
+        if (idx < dots.length - 1) dots[idx + 1].click();
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        if (idx > 0) dots[idx - 1].click();
+      }
+    });
+  </script>
+</body>
+</html>
